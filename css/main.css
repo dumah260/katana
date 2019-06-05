@@ -1,4 +1,82 @@
-.container {
-    margin-top: 5.5rem;
-    min-height: calc(100vh - 9.1rem);
+/* body */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.wrapper {
+    overflow-x: hidden;
+}
+
+/* left bar and menu */
+.leftbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16rem;
+}
+#menu {
+    min-height: calc(100vh - 7rem);
+}
+#menu ul.nav {
+    width: 100%;
+}
+#menu ul.nav ul.nav {
+    width: 100%;
+}
+#menu li.nav-item li.nav-item {
+    font-size: .9rem;
+    padding-left: 1rem;
+}
+#menu li.nav-item li.nav-item {
+    border-bottom: 0 none;
+}
+#menu li.nav-item {
+    border-bottom: 1px solid;
+}
+#menu > ul > li.nav-item:last-child {
+    border-bottom: 0 none;
+}
+
+/* main content */
+.main-content {
+    display: inline-block;
+    width: 100%;
+    padding-left: 17rem;
+    padding-right: 1rem;
+}
+section {
+    min-height: 100vh;
+}
+
+#home {
+    background-image: url('../img/banner.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.welcome {
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding: 4rem 0;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Shadows Into Light', cursive;
+}
+.welcome h1 {
+    font-size: 4rem;
+}
+
+#sorting ul {
+    list-style-type: none;
+}
+h2 {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2.5rem;
+}
+pre {
+    color: #C00;
 }

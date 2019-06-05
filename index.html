@@ -6,72 +6,237 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Katana</title>
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
+
+    <!--bootstrap CSS-->
     <link rel="stylesheet"
-        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+    integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <!--Font Awesome CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Standard Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header class="bg-light fixed-top">
-        <div class="col-12 my-3">
-            <div class="row">
-                <div class="col-6 col-md-4">
-                    <img src="img/logo.png" alt="Katana">
-                </div>
-                <div class="col-6 col-md-8">
-                    <nav class="nav justify-content-end mt-1">
-                        <a class="nav-link" href="#home"><span class="fa fa-home"></span> Home</a>
-                        <a class="nav-link" href="#sorting"><span class="fa fa-sort"></span> Sorting</a>
-                        <a class="nav-link" href="#contact"><span class="fa fa-phone"></span> Contact</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <hr class="m-0">
-    </header>
 
-    <main class="container">
-        <section id="home">
-
-        </section>
-        <section id="sorting">
-
-        </section>
-        <section id="contact">
-
-        </section>
-    </main>
-
-    <footer class="bg-light">
-        <hr class="my-0">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-6 text-left">
-                    <div class="py-3">
-                        <small>&copy; Copyright 2019 Katana</small>
-                    </div>
-                </div>
-                <div class="col-6 text-right">
-                    <div class="pt-2">
-                        <a href="#home">
-                            <img src="img/favicon.png" alt="Katana" width="36">
-                        </a>
+    <div class="wrapper">
+        <div class="row">
+            <div class="bg-dark leftbar">
+                <div class="col-12 my-3">
+                    <div class="row">
+                        <!-- Logo -->
+                        <div class="col-12 text-center" id="logo">
+                            <a href="#home">
+                                <img src="img/logo.png" alt="Katana">
+                            </a>
+                        </div>
+                        <!-- Menu -->
+                        <nav class="col-12 py-3 mt-3" id="menu">
+                            <ul class="nav mt-1 flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#home" >Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#sorting" >Sorting</a>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="#selection-sort">Selection Sort</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="#merge-sort">Merge Sort</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="#contact">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- Copyright -->
+                        <div class="col-12" id="copyright">
+                            <small class="text-white">&copy; Copyright 2019 Katana</small>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
 
+            <main class="main-content bg-light">
+                <!-- Home Content -->
+                <section id="home">
+                    <div class="welcome text-white">
+                        <h1>
+                            <small>Welcome to the</small><br />Samurai Coding
+                        </h1>
+                    </div>
+                </section>
+                <!-- Sorting Content -->
+                <section id="sorting">
+                    <div class="col-12 pt-4">
+                        <h2>Sorting</h2>
+                    </div>
+                    <hr>
+                    <!-- List of Sort Algorithms -->
+                    <ul>
+                        <!-- Selection Sort -->
+                        <li class="pt-3" id="selection-sort">
+                            <h4>Selection Sort</h4>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <p>Selection Sort consists in a basic idea.
+                                    For each position in an array, check the remaining positions to find the smaller value.
+                                    If there is a value smaller than the current position value, swap them.</p>
+                                    <pre>
+                                        <code>
+function selectionSort (array) {
+
+    const arrayLenght = array.length; //number of items in the array
+
+    let firstCounter = 0; //counter for the first loop
+    let secondCounter = 0; //counter for the second loop
+    let minIndex = 0; //index of the small value of the array
+    let aux = 0; //variable to keep the value that have to change position
+
+    for (firstCounter; firstCounter < arrayLenght; firstCounter++) { minIndex=firstCounter; //start the min index with the
+
+        current loop index secondCounter=firstCounter + 1; //the second loop should start from the next postion
+
+        for (secondCounter; secondCounter < arrayLenght; secondCounter++) { //check if the value in the second loop is smaller than the current min value
+            if (array[minIndex]> array[secondCounter]) {
+                minIndex = secondCounter; //if is smaller change the min index for the second loop index
+            }
+        }
+
+        //if the min index changed we need to swap
+        if (firstCounter != minIndex) {
+            aux = array[ firstCounter ]; //tem variable receives the current value of the fisrt loop
+            array[ firstCounter ] = array[ minIndex ]; //the array receives the smaller value in the first loop position
+            array[ minIndex ] = aux; //the index that had the smaller value receives the value of the first loop position
+        }
+    }
+    return array;
+}
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="col-12 col-md-6 text-center">
+                                    <img src="img/selection-sort.png" alt="Selection Sort">
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Selection Sort -->
+                        <li class="pt-3" id="merge-sort">
+                            <h4>Merge Sort</h4>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <p>Divide and conquer.
+                                    The first step is divide all the array postions in the middle recursively.
+                                    Once divided, all the positions are merged swapping values when necessary.
+                                    </p>
+                                    <pre>
+                                        <code>
+function mergeSort (array) {
+
+    let middlePosition = 0;
+    let leftItems = [];
+    let rightItems = [];
+
+    //if the array have more than 1 postion we need to split it
+    if (array.length > 1) {
+
+        middlePosition = array.length / 2; // divide the number of postions in 2
+        middlePosition = Math.floor(middlePosition); // get the integer result
+
+        leftItems = array.slice(0, middlePosition); //receives the first part of the array
+        rightItems = array.slice(middlePosition); //receives the second part of the array
+
+        //call the function again to keep dividing the array
+        leftItems = mergeSort(leftItems);
+        rightItems = mergeSort(rightItems);
+
+        return mergeItems(leftItems, rightItems); //put both sides of the array together swapping when necessary
+    } else {
+        return array;
+    }
+}
+
+function mergeItems(leftItems, rightItems) {
+
+    let arraySorted = []; //new array with merged values
+
+    while (leftItems.length && rightItems.length) {
+
+        //check if the item in the left side is smaller than the item in the right side
+        if (leftItems[0] < rightItems[0]) {
+            arraySorted.push(leftItems[0]); //move the item to the new sorted array
+            leftItems.shift(); // remove the item in the first position
+        } else {
+            arraySorted.push(rightItems[0]); //move the
+            item to the new sorted array rightItems.shift(); // remove the item in the first position
+        }
+    }
+
+    //concat the newsorted array with the remaining items
+    arraySorted = arraySorted.concat(leftItems).concat(rightItems);
+
+    return arraySorted;
+}
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="col-12 col-md-6 text-center">
+                                    <img src="img/merge-sort.png" alt="Merge Sort">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <!-- Contact Content -->
+                <section id="contact">
+                    <div class="col-12 pt-4">
+                        <h2>Contact</h2>
+                    </div>
+                    <hr>
+                    <ul>
+                        <li class="d-flex mt-5">
+                            <div class="pr-4">
+                                <img src="img/avatar.jpeg" alt="Henrique Orlandin" class="rounded-circle" width="160px">
+                            </div>
+                            <div>
+                                <h4>Henri-san <small>(Henrique Orlandin)</small></h4>
+                                <p>
+                                    +1 (236) 833-6803 -
+                                    <a href="mailTo:henrique.orlandin@gmail.com" class="text-info">henrique.orlandin@gmail.com</a>
+                                </p>
+                                <p>
+                                    Over 8 years of web development experience.
+                                    My first contact with coding was during a electronic course. In that case the language was C++.
+                                    Yes, I've worked with electronics too for more than 2 years. This was my first job.
+                                    For you that may be thinking that I'm crazy... You're probably right.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!--jQuery JS-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
+    <!--Popper JS (Necessary for Boostrap)-->
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
         integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
         crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
         integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
+
     <script src="js/main.js"></script>
 </body>
 </html>
