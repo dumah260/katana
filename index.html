@@ -7,11 +7,11 @@
     <title>Katana</title>
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
 
-    <!--bootstrap CSS-->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet"
     href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
     integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <!--Style Coding CSS-->
+    <!-- Style Coding CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css">
     <!-- Standard Font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700&display=swap" rel="stylesheet">
@@ -53,6 +53,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link text-white" href="#merge-sort">Merge Sort</a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="#quick-sort">Quick Sort</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -73,7 +76,7 @@
                 <section id="home">
                     <div class="welcome text-white">
                         <h1>
-                            <small>Welcome to the</small><br />Samurai Coding
+                            <small>Welcome to the</small><br />Katana Coding
                         </h1>
                     </div>
                 </section>
@@ -284,6 +287,61 @@ function mergeItems(leftItems, rightItems) {
                                 </div>
                             </div>
                         </li>
+
+                        <!-- Quick Sort -->
+                        <li class="pt-3" id="quick-sort">
+                            <h4>Quick Sort</h4>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <p>Quick sort follows Divide and Conquer algorithm. It is dividing elements in to
+                                        smaller parts based on some condition and performing the sort operations on
+                                        those divided smaller parts.</p>
+                                    <p>Firstly select an element which is called as pivot element (middle) , Next
+                                        compare all array elements with the selected pivot element and arrange them in
+                                        such a way that, elements less than the pivot element are to its left and
+                                        greater than pivot is to its right.</p>
+                                    <p>Finally, perform the same operations on left and right side elements to the
+                                        pivot element.
+                                    </p>
+                                    <pre>
+                                        <code class="language-javascript">
+function quickSort(arr) {
+    if (arr.length <=1){
+        return arr;
+    }
+
+    var arrayCounter = arr.length; // this variable is receiving the number of items into the array
+    var pivotPosition = Math.floor(arrayCounter / 2); // Math.floor is an imprecise division which take the lowest integer value
+
+    var middleValue = arr [pivotPosition]; // middleValue = receving value from the middle
+    var less = [],
+        more = [],
+        same = [];
+
+    for (var i = 0; i < arrayCounter; i++){ // It consist to make a loop to check every position in the array
+
+        if (arr[i] == middleValue){ // When the items in the array are equal to the middle of the array put them in the middle array
+            same.push(arr[i]); // If the value is equal to the same value which is the middle put it in the same array
+        }
+        else if (arr[i] < middleValue){ // When the items in the array are lesser than the value in the middle put it in an array before the middleArray
+            less.push(arr[i]); // If the value is lesser than the precedent value put it in an other array before the precedent value
+        }
+        else{
+            more.push(arr[i]);// If the value is grader put it in an array after the middleArray
+        }
+
+    }
+
+    return quickSort(less).concat(same, quickSort(more));// After organising our 3 array concat them and repeat again
+}
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="col-12 col-md-6 text-center">
+                                    <img src="img/quick-sort.png" alt="Quick Sort">
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </section>
 
@@ -331,6 +389,23 @@ function mergeItems(leftItems, rightItems) {
                         </li>
                         <li class="d-flex mt-5">
                             <div class="pr-4">
+                                <img src="img/ramzi.jpg" alt="Ramzi-Anis Beldjillali" class="rounded-circle" width="160px">
+                            </div>
+                            <div class="pr-4">
+                                <h4>Ramzi-Anis Beldjillali</h4>
+                                <p>
+                                    <a href="mailTo:ramzibeldjillali69@gmail.com" class="text-info">ramzibeldjillali69@gmail.com</a>
+                                </p>
+                                <p>Actually student in Web & Mobile App Development Diploma.
+                                    I started my Diploma 1 month ago from the very beginning because I didn’t had any
+                                    experience about computing before, but thanks to my courses I’ve learned a little
+                                    bit about programming (Java Script , Python & CSS) and also all the algorithms part.
+                                    I hope with this course to be able to reach the status of junior developer within a
+                                    year.</p>
+                            </div>
+                        </li>
+                        <li class="d-flex mt-5">
+                            <div class="pr-4">
                                 <img src="img/risa.jpg" alt="Risa Takata" class="rounded-circle" width="160px">
                             </div>
                             <div class="pr-4">
@@ -348,19 +423,19 @@ function mergeItems(leftItems, rightItems) {
         </div>
     </div>
 
-    <!--jQuery JS-->
+    <!-- jQuery JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <!--Popper JS (Necessary for Boostrap)-->
+    <!-- Popper JS (Necessary for Boostrap) -->
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
         integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
         crossorigin="anonymous"></script>
-    <!--Bootstrap JS-->
+    <!-- Bootstrap JS -->
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
     integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"></script>
-    <!--Style Coding JS-->
+    <!-- Style Coding JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js"></script>
 
     <script src="js/main.js"></script>
