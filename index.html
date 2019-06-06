@@ -48,6 +48,9 @@
                                             <a class="nav-link text-white" href="#selection-sort">Selection Sort</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link text-white" href="#bubble-sort">Bubble Sort</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link text-white" href="#merge-sort">Merge Sort</a>
                                         </li>
                                     </ul>
@@ -175,6 +178,47 @@ function selectionSort (array) {
                             </div>
                         </li>
 
+                        <!-- Bubble Sort -->
+                        <li class="pt-3" id="bubble-sort">
+                            <h4>Bubble Sort</h4>
+                            <div class="row">
+                                <div class="col-12 col-md-5">
+                                    <p>Bubble Sort is the simplest sorting algorithm that works by repeatedly
+                                        swapping the adjacent elements if they are in wrong order.</p>
+                                    <pre>
+                                        <code class="language-javascript">
+function swap(arr, first_Index, second_Index){
+    let temp = arr[first_Index];
+    arr[first_Index] = arr[second_Index];
+    arr[second_Index] = temp;
+
+}
+
+function bubble_Sort(arr){
+
+    var let = arr.length,
+    i, j, stop;
+
+    for (i = 0; i < len; i++){
+        for (j = 0, stop = len-i; j < stop; j++){
+            if (arr[j] > arr[j+1]){
+                swap(arr, j, j+1);
+            }
+        }
+    }
+
+    return arr;
+}
+
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="col-12 col-md-7 text-center">
+                                    <img src="img/bubble-sort.png" alt="Bubble Sort">
+                                </div>
+                            </div>
+                        </li>
+
                         <!-- Merge Sort -->
                         <li class="pt-3" id="merge-sort">
                             <h4>Merge Sort</h4>
@@ -242,6 +286,7 @@ function mergeItems(leftItems, rightItems) {
                         </li>
                     </ul>
                 </section>
+
                 <!-- Contact Content -->
                 <section id="contact">
                     <div class="col-12 pt-4">
@@ -254,7 +299,7 @@ function mergeItems(leftItems, rightItems) {
                                 <img src="img/henrique.png" alt="Henrique Orlandin" class="rounded-circle" width="160px">
                             </div>
                             <div class="pr-4">
-                                <h4>Henri-san <small>(Henrique Orlandin)</small></h4>
+                                <h4>Henrique Orlandin</h4>
                                 <p>
                                     +1 (236) 833-6803 -
                                     <a href="mailTo:henrique.orlandin@gmail.com" class="text-info">henrique.orlandin@gmail.com</a>
@@ -264,6 +309,23 @@ function mergeItems(leftItems, rightItems) {
                                     My first contact with coding was during a electronic course. In that case the language was C++.
                                     Yes, I've worked with electronics too for more than 2 years. This was my first job.
                                     For you that may be thinking that I'm crazy... You're probably right.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="d-flex mt-5">
+                            <div class="pr-4">
+                                <img src="img/nj.jpg" alt="Newaj Ahmed" class="rounded-circle" width="160px">
+                            </div>
+                            <div class="pr-4">
+                                <h4>Newaj Ahmed</h4>
+                                <p>
+                                    +1 (236) 886-1588 -
+                                    <a href="mailTo:newajpluto@gmail.com" class="text-info">newajpluto@gmail.com</a>
+                                </p>
+                                <p>
+                                    Yo! It's me Newaj you can call me Nj.I am a student at Cornerstone International
+                                    Community College.I am currently studying Mobile and Webpage Development.Call me
+                                    if you need me but not after 12 a.m. Peace out!!
                                 </p>
                             </div>
                         </li>
