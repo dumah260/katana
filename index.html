@@ -11,8 +11,8 @@
     <link rel="stylesheet"
     href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
     integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <!--Font Awesome CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Style Coding CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css">
     <!-- Standard Font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -41,6 +41,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="#sorting" >Sorting</a>
                                     <ul class="nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="#insertion-sort">Insertion Sort</a>
+                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link text-white" href="#selection-sort">Selection Sort</a>
                                         </li>
@@ -79,16 +82,61 @@
                     <hr>
                     <!-- List of Sort Algorithms -->
                     <ul>
+                        <!-- Insertion Sort -->
+                        <li class="pt-3" id="insertion-sort">
+                            <h4>Insertion Sort</h4>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <p>Insertion sort is a method of sorting an array by dividing the array into a 'sorted' part and 'unsorted' part.</p>
+                                    <p>Each element from the unsorted part are compared with the elements in the sorted part ,and then inserted in the
+                                        correct position in the sorted part.</p>
+                                    <pre>
+                                        <code class="language-javascript">
+function insertionSort(array){
+
+    let i;
+    let h;
+
+    // select the 'unsorted' elements
+    for (i = 1; i < array.length; i++){ //store the current 'unsorted' element value
+
+        let tmp = array[i]; //loop through the items in the sorted array
+        for (h = i-1; h >= 0; h--){
+
+            //if the 'unsorted' element is smaller than 'sorted' element, swift other elements to the right to make the proper position for 'unsorted' element
+            if (array[h] > tmp){
+                array[h+1] = array[h];
+            } else {
+                break;
+            }
+        }
+
+        // insert the 'unsorted' element to its proper position
+        array[h+1] = tmp;
+
+    }
+
+    return array;
+}
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="col-12 col-md-6 text-center">
+                                    <img src="img/insertion-sort.png" alt="Insertion Sort">
+                                </div>
+                            </div>
+                        </li>
+
                         <!-- Selection Sort -->
                         <li class="pt-3" id="selection-sort">
                             <h4>Selection Sort</h4>
                             <div class="row">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-7">
                                     <p>Selection Sort consists in a basic idea.
                                     For each position in an array, check the remaining positions to find the smaller value.
                                     If there is a value smaller than the current position value, swap them.</p>
                                     <pre>
-                                        <code>
+                                        <code class="language-javascript">
 function selectionSort (array) {
 
     const arrayLenght = array.length; //number of items in the array
@@ -98,9 +146,10 @@ function selectionSort (array) {
     let minIndex = 0; //index of the small value of the array
     let aux = 0; //variable to keep the value that have to change position
 
-    for (firstCounter; firstCounter < arrayLenght; firstCounter++) { minIndex=firstCounter; //start the min index with the
+    for (firstCounter; firstCounter < arrayLenght; firstCounter++) {
 
-        current loop index secondCounter=firstCounter + 1; //the second loop should start from the next postion
+        minIndex = firstCounter; //start the min index with the current loop index
+        secondCounter = firstCounter + 1; //the second loop should start from the next postion
 
         for (secondCounter; secondCounter < arrayLenght; secondCounter++) { //check if the value in the second loop is smaller than the current min value
             if (array[minIndex]> array[secondCounter]) {
@@ -120,13 +169,13 @@ function selectionSort (array) {
                                         </code>
                                     </pre>
                                 </div>
-                                <div class="col-12 col-md-6 text-center">
+                                <div class="col-12 col-md-5 text-center">
                                     <img src="img/selection-sort.png" alt="Selection Sort">
                                 </div>
                             </div>
                         </li>
 
-                        <!-- Selection Sort -->
+                        <!-- Merge Sort -->
                         <li class="pt-3" id="merge-sort">
                             <h4>Merge Sort</h4>
                             <div class="row">
@@ -136,7 +185,7 @@ function selectionSort (array) {
                                     Once divided, all the positions are merged swapping values when necessary.
                                     </p>
                                     <pre>
-                                        <code>
+                                        <code class="language-javascript">
 function mergeSort (array) {
 
     let middlePosition = 0;
@@ -173,8 +222,8 @@ function mergeItems(leftItems, rightItems) {
             arraySorted.push(leftItems[0]); //move the item to the new sorted array
             leftItems.shift(); // remove the item in the first position
         } else {
-            arraySorted.push(rightItems[0]); //move the
-            item to the new sorted array rightItems.shift(); // remove the item in the first position
+            arraySorted.push(rightItems[0]); //move the item to the new sorted array
+            rightItems.shift(); // remove the item in the first position
         }
     }
 
@@ -202,9 +251,9 @@ function mergeItems(leftItems, rightItems) {
                     <ul>
                         <li class="d-flex mt-5">
                             <div class="pr-4">
-                                <img src="img/avatar.jpeg" alt="Henrique Orlandin" class="rounded-circle" width="160px">
+                                <img src="img/henrique.png" alt="Henrique Orlandin" class="rounded-circle" width="160px">
                             </div>
-                            <div>
+                            <div class="pr-4">
                                 <h4>Henri-san <small>(Henrique Orlandin)</small></h4>
                                 <p>
                                     +1 (236) 833-6803 -
@@ -216,6 +265,19 @@ function mergeItems(leftItems, rightItems) {
                                     Yes, I've worked with electronics too for more than 2 years. This was my first job.
                                     For you that may be thinking that I'm crazy... You're probably right.
                                 </p>
+                            </div>
+                        </li>
+                        <li class="d-flex mt-5">
+                            <div class="pr-4">
+                                <img src="img/risa.jpg" alt="Risa Takata" class="rounded-circle" width="160px">
+                            </div>
+                            <div class="pr-4">
+                                <h4>Risa Takata</h4>
+                                <p>
+                                    <a href="mailTo:tktk11217@gmail.com" class="text-info">tktk11217@gmail.com</a>
+                                </p>
+                                <p>I'm from tokyo,japan.I majored in sociology in college. After graduation, I came to
+                                    vancouver and started learning web development.</p>
                             </div>
                         </li>
                     </ul>
@@ -234,8 +296,10 @@ function mergeItems(leftItems, rightItems) {
         crossorigin="anonymous"></script>
     <!--Bootstrap JS-->
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
-        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
-        crossorigin="anonymous"></script>
+    integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    crossorigin="anonymous"></script>
+    <!--Style Coding JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js"></script>
 
     <script src="js/main.js"></script>
 </body>
